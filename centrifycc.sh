@@ -305,9 +305,9 @@ function resolve_rpm_name()
     r=0
     case "$OS_NAME" in
     rhel|amzn|centos)
-        #CENTRIFYCC_RPM_NAME="CentrifyCC-rhel6.x86_64.rpm"
+        CENTRIFYCC_RPM_NAME="CentrifyCC-rhel6.x86_64.rpm"
         # Revert to older version
-        CENTRIFYCC_RPM_NAME="CentrifyCC-19.5-119-rhel6.x86_64.rpm"
+        #CENTRIFYCC_RPM_NAME="CentrifyCC-19.5-119-rhel6.x86_64.rpm"
         ;;
     ubuntu)
         CENTRIFYCC_RPM_NAME="centrifycc-deb8-x86_64.deb"
@@ -400,6 +400,9 @@ function start_deploy()
     download_install_rpm $CENTRIFYCC_DOWNLOAD_PREFIX $CENTRIFYCC_RPM_NAME
     r=$? && [ $r -ne 0 ] && return $r
   
+    disable_selinux
+    r=$? && [ $r -ne 0 ] && return $r
+
     enable_sshd_password_auth
     r=$? && [ $r -ne 0 ] && return $r
 

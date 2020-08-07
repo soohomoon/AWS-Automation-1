@@ -767,3 +767,18 @@ function enable_use_my_account()
         return 0
     fi
 }
+
+function disable_selinux()
+{
+    if [ "$CENTRIFYCC_DISABLE_SELINUX" = "yes" ];then
+        if [ -f /etc/selinux/config ];then
+            /bin/sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config
+            r=$?
+            if [ $r -ne 0 ];then
+                echo "$CENTRIFY_MSG_PREX: Disable SELinux in /etc/selinux/config failed!"
+                return $r
+            fi
+        fi
+    fi
+    return 0
+}
