@@ -309,7 +309,8 @@ function resolve_rpm_name()
             CENTRIFYCC_RPM_NAME="CentrifyCC-rhel6.x86_64.rpm"
         else
         # Revert to older version
-            CENTRIFYCC_RPM_NAME="CentrifyCC-19.5-119-rhel6.x86_64.rpm"
+            #CENTRIFYCC_RPM_NAME="CentrifyCC-19.5-119-rhel6.x86_64.rpm"
+            CENTRIFYCC_RPM_NAME="CentrifyCC-rhel6.x86_64.rpm"
         fi
         ;;
     ubuntu)
