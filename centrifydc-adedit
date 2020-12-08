@@ -11,5 +11,6 @@ set computername [lindex $argv 0]
 set adminuser [lindex $argv 1]
 set adminpw [lindex $argv 2]
 
-bind centrifylab.aws $adminuser $adminpw
+#bind centrifylab.aws $adminuser $adminpw
+bind centrifylab.aws labadmin@centrify.lab Centr1fy
 add_object_value "CN=Agent Machines,OU=UNIX Groups,OU=Centrify,DC=centrifylab,DC=aws" member CN=$computername,OU=Computers,OU=Centrify,DC=centrifylab,DC=aws
